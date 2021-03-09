@@ -2,6 +2,10 @@ package com.portal.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import tk.mybatis.spring.annotation.MapperScan;
+
 //import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.ComponentScan;
@@ -11,8 +15,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import org.springframework.stereotype.Service;
 //import tk.mybatis.spring.annotation.MapperScan;
 
-@SpringBootApplication
 
+@SpringBootApplication
+@MapperScan(basePackages = "com.portal.user.mapper")
+@ComponentScan(basePackages = {"com.portal", "org.n3r.idworker"})
 //@ComponentScan(basePackages = {"com.portal", "org.n3r.idworker"})
 public class Application {
 

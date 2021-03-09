@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/mybatis-generator-database/mybatis-generator-database.iml" filepath="$PROJECT_DIR$/mybatis-generator-database/mybatis-generator-database.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/portal-news.iml" filepath="$PROJECT_DIR$/.idea/portal-news.iml" />
       <module fileurl="file://$PROJECT_DIR$/portal-news-api/portal-news-api.iml" filepath="$PROJECT_DIR$/portal-news-api/portal-news-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/portal-news-common/portal-news-common.iml" filepath="$PROJECT_DIR$/portal-news-common/portal-news-common.iml" />

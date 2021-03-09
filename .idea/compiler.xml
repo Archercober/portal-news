@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="portal-news-service-user" />
+        <module name="mybatis-generator-database" />
         <module name="portal-news-model" />
         <module name="portal-news-api" />
         <module name="portal-news-common" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="15">
+      <module name="mybatis-generator-database" target="15" />
       <module name="portal-news" target="15" />
       <module name="portal-news-api" target="15" />
       <module name="portal-news-common" target="15" />
@@ -22,6 +24,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mybatis-generator-database" options="" />
       <module name="portal-news-api" options="-parameters" />
       <module name="portal-news-common" options="-parameters" />
       <module name="portal-news-model" options="-parameters" />
