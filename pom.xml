@@ -56,7 +56,8 @@
 
         <slf4j.version>1.7.21</slf4j.version>
         <joda-time.version>2.10.6</joda-time.version>
-        <spring.cloud-version>Hoxton.SR8</spring.cloud-version>
+        <spring.cloud-version>2020.0.2</spring.cloud-version>
+        <hibernate-validator-version>6.0.17.Final</hibernate-validator-version>
     </properties>
 
     <!--
@@ -193,8 +194,17 @@
                 <artifactId>joda-time</artifactId>
                 <version>${joda-time.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator-version}</version>
+            </dependency>
 
         </dependencies>
+
+
+
+
     </dependencyManagement>
 
     <build>
@@ -204,6 +214,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+
                 <configuration>
                     <source>15</source>
                     <target>15</target>
@@ -212,5 +223,8 @@
             </plugin>
         </plugins>
     </build>
+
+
+
 
 </project>

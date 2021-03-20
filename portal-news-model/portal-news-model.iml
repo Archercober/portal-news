@@ -28,7 +28,6 @@
     <orderEntry type="module" module-name="portal-news-common" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.4.3" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.4.3" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.3" level="project" />
@@ -50,9 +49,7 @@
     <orderEntry type="library" name="Maven: org.glassfish:jakarta.el:3.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.43" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.3.4" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.4" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-configuration-processor:2.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.4" level="project" />
@@ -60,8 +57,6 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:2.4.5" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-keyvalue:2.4.5" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.4.5" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-oxm:5.3.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.3.4" level="project" />
     <orderEntry type="library" name="Maven: io.lettuce:lettuce-core:6.0.2.RELEASE" level="project" />
@@ -106,6 +101,8 @@
     <orderEntry type="library" name="Maven: io.opentracing:opentracing-api:0.33.0" level="project" />
     <orderEntry type="library" name="Maven: io.opentracing:opentracing-util:0.33.0" level="project" />
     <orderEntry type="library" name="Maven: io.opentracing:opentracing-noop:0.33.0" level="project" />
+    <orderEntry type="library" name="Maven: com.tencentcloudapi:tencentcloud-sdk-java:3.1.62" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup.okhttp:okhttp:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.aliyun.oss:aliyun-sdk-oss:3.10.2" level="project" />
     <orderEntry type="library" name="Maven: org.jdom:jdom2:2.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jettison:jettison:1.1" level="project" />
@@ -136,5 +133,20 @@
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper-spring-boot-autoconfigure:1.2.12" level="project" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:5.1.10" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver:3.11.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:bson:4.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:4.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-mongodb:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-sync:4.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-mongodb:3.1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.4.5" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:6.0.17.Final" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:2.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.4.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.5.1" level="project" />
   </component>
 </module>

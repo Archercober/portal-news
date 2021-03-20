@@ -2,8 +2,8 @@ package com.portal.grace.result;
 
 /**
  * 
- * @Title: IMOOCJSONResult.java
- * @Package com.imooc.utils
+ * @Title: portalJSONResult.java
+ * @Package com.portal.utils
  * @Description: 自定义响应数据结构
  * 				本类可提供给 H5/ios/安卓/公众号/小程序 使用
  * 				前端接受此类数据（json object)后，可自行根据业务去实现相关功能
@@ -16,11 +16,11 @@ package com.portal.grace.result;
  * 				556: 用户qq校验异常
  * 			    557: 校验用户是否在CAS登录，用户门票的校验
  * @Copyright: Copyright (c) 2020
- * @Company: www.imooc.com
+ * @Company: www.portal.com
  * @author Archer
  * @version V1.0
  */
-public class IMOOCJSONResult {
+public class PORTALJSONResult {
 
     // 响应业务状态
     private Integer status;
@@ -33,64 +33,64 @@ public class IMOOCJSONResult {
     
     private String ok;	// 不使用
 
-    public static IMOOCJSONResult build(Integer status, String msg, Object data) {
-        return new IMOOCJSONResult(status, msg, data);
+    public static PORTALJSONResult build(Integer status, String msg, Object data) {
+        return new PORTALJSONResult(status, msg, data);
     }
 
-    public static IMOOCJSONResult build(Integer status, String msg, Object data, String ok) {
-        return new IMOOCJSONResult(status, msg, data, ok);
+    public static PORTALJSONResult build(Integer status, String msg, Object data, String ok) {
+        return new PORTALJSONResult(status, msg, data, ok);
     }
     
-    public static IMOOCJSONResult ok(Object data) {
-        return new IMOOCJSONResult(data);
+    public static PORTALJSONResult ok(Object data) {
+        return new PORTALJSONResult(data);
     }
 
-    public static IMOOCJSONResult ok() {
-        return new IMOOCJSONResult(null);
+    public static PORTALJSONResult ok() {
+        return new PORTALJSONResult(null);
     }
     
-    public static IMOOCJSONResult errorMsg(String msg) {
-        return new IMOOCJSONResult(500, msg, null);
+    public static PORTALJSONResult errorMsg(String msg) {
+        return new PORTALJSONResult(500, msg, null);
     }
 
-    public static IMOOCJSONResult errorUserTicket(String msg) {
-        return new IMOOCJSONResult(557, msg, null);
+    public static PORTALJSONResult errorUserTicket(String msg) {
+        return new PORTALJSONResult(557, msg, null);
     }
     
-    public static IMOOCJSONResult errorMap(Object data) {
-        return new IMOOCJSONResult(501, "error", data);
+    public static PORTALJSONResult errorMap(Object data) {
+        return new PORTALJSONResult(501, "error", data);
     }
     
-    public static IMOOCJSONResult errorTokenMsg(String msg) {
-        return new IMOOCJSONResult(502, msg, null);
+    public static PORTALJSONResult errorTokenMsg(String msg) {
+        return new PORTALJSONResult(502, msg, null);
     }
     
-    public static IMOOCJSONResult errorException(String msg) {
-        return new IMOOCJSONResult(555, msg, null);
+    public static PORTALJSONResult errorException(String msg) {
+        return new PORTALJSONResult(555, msg, null);
     }
     
-    public static IMOOCJSONResult errorUserQQ(String msg) {
-        return new IMOOCJSONResult(556, msg, null);
+    public static PORTALJSONResult errorUserQQ(String msg) {
+        return new PORTALJSONResult(556, msg, null);
     }
 
-    public IMOOCJSONResult() {
+    public PORTALJSONResult() {
 
     }
 
-    public IMOOCJSONResult(Integer status, String msg, Object data) {
+    public PORTALJSONResult(Integer status, String msg, Object data) {
         this.status = status;
         this.msg = msg;
         this.data = data;
     }
     
-    public IMOOCJSONResult(Integer status, String msg, Object data, String ok) {
+    public PORTALJSONResult(Integer status, String msg, Object data, String ok) {
         this.status = status;
         this.msg = msg;
         this.data = data;
         this.ok = ok;
     }
 
-    public IMOOCJSONResult(Object data) {
+    public PORTALJSONResult(Object data) {
         this.status = 200;
         this.msg = "OK";
         this.data = data;

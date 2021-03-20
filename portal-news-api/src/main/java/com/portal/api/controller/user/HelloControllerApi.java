@@ -12,6 +12,10 @@ public interface HelloControllerApi {
     @ApiOperation(value = "hello方法的接口", notes = "hello方法的接口", httpMethod = "GET")
     @GetMapping("/hello")
     public Object hello();
+
+    @ApiOperation(value = "redis方法的接口", notes = "redis方法的接口", httpMethod = "GET")
+    @GetMapping("/Redis")
+    public Object Redis();
 }
 
 
