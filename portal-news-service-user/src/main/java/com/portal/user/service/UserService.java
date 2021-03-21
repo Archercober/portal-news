@@ -3,9 +3,11 @@ package com.portal.user.service;
 import com.portal.pojo.AppUser;
 import com.portal.pojo.bo.UpdateUserInfoBO;
 import com.portal.pojo.vo.PublisherVO;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface UserService {
 
     /**
