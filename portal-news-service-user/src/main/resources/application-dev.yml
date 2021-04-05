@@ -23,4 +23,4 @@ mybatis:
 
 ## 设置域名，在java代码中获取，这里是资源配置
 website:
-  domain-name: portal-news.com
+  domain-name: 127.0.0.1
