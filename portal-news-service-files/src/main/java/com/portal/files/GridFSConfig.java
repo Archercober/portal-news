@@ -1,22 +1,26 @@
 package com.portal.files;
 
-import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSBuckets;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.MongoDatabaseFactory;
 
-@Component
+@Configuration
 public class GridFSConfig {
 
     @Value("${spring.data.mongodb.database}")
     private String mongodb;
 
+    @Autowired
+    private MongoDatabaseFactory mongoDbFactory;
+
     @Bean
-    public GridFSBucket gridFSBucket(MongoClient mongoClient) {
-        MongoDatabase mongoDatabase = mongoClient.getDatabase(mongodb);
+    public GridFSBucket gridFSBucket() {
+        MongoDatabase mongoDatabase = mongoDbFactory.getMongoDatabase();
         GridFSBucket bucket = GridFSBuckets.create(mongoDatabase);
         return bucket;
     }

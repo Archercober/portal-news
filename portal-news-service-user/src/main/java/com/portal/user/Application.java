@@ -16,7 +16,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 //import tk.mybatis.spring.annotation.MapperScan;
 
 
-@SpringBootApplication
+@SpringBootApplication(exclude = MongoAutoConfiguration.class)
 @MapperScan(basePackages = "com.portal.user.mapper")
 @ComponentScan(basePackages = {"com.portal", "org.n3r.idworker"})
 //@ComponentScan(basePackages = {"com.portal", "org.n3r.idworker"})

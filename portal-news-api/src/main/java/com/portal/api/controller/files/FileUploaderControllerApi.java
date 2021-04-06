@@ -3,6 +3,7 @@ package com.portal.api.controller.files;
 import com.portal.grace.result.GraceJSONResult;
 import com.portal.pojo.bo.NewAdminBO;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -42,6 +43,7 @@ public interface FileUploaderControllerApi {
      * @return
      * @throws Exception
      */
+    @ApiOperation(value = "人脸上传", notes = "上传到gridfs", httpMethod = "POST")
     @PostMapping("/uploadToGridFS")
     public GraceJSONResult uploadToGridFS(@RequestBody NewAdminBO newAdminBO)
             throws Exception;

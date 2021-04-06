@@ -7,7 +7,7 @@ import java.util.Date;
 public interface AppUserMngService {
 
     /**
-     * 查询管理员列表
+     * 查询所有用户列表
      */
     public PagedGridResult queryAllUserList(String nickname,
                                             Integer status,
