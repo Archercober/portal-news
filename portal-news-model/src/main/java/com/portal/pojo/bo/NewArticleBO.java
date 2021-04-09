@@ -1,6 +1,5 @@
 package com.portal.pojo.bo;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Max;
@@ -36,7 +35,7 @@ public class NewArticleBO {
     @Max(value = 1, message = "文章发布类型不正确")
     private Integer isAppoint;
 
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss") // 前端日期字符串传到后端后，转换为Date类型
+    //@JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss") // 前端日期字符串传到后端后，转换为Date类型
     private Date publishTime;
 
     @NotBlank(message = "用户未登录")

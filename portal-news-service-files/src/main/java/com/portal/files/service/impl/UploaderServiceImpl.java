@@ -57,7 +57,7 @@ public class UploaderServiceImpl implements UploaderService {
         OSS ossClient = new OSSClientBuilder().build(endpoint,
                                                     accessKeyId,
                                                     accessKeySecret);
-//        images/abc/10010/dog.png
+//        images/abc/1001/dog.png
 
         String fileName = sid.nextShort();
         String myObjectName = fileResource.getObjectName()

@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="portal-news-service-user" />
+        <module name="portal-news-service-article" />
         <module name="portal-news-model" />
         <module name="portal-news-service-admin" />
         <module name="portal-news-service-files" />
@@ -22,6 +23,7 @@
       <module name="portal-news-common" target="15" />
       <module name="portal-news-model" target="15" />
       <module name="portal-news-service-admin" target="15" />
+      <module name="portal-news-service-article" target="15" />
       <module name="portal-news-service-files" target="15" />
       <module name="portal-news-service-user" target="15" />
     </bytecodeTargetLevel>
@@ -33,6 +35,7 @@
       <module name="portal-news-common" options="-parameters" />
       <module name="portal-news-model" options="-parameters" />
       <module name="portal-news-service-admin" options="-parameters" />
+      <module name="portal-news-service-article" options="-parameters" />
       <module name="portal-news-service-files" options="-parameters" />
       <module name="portal-news-service-user" options="-parameters" />
     </option>

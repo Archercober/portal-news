@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/portal-news-common/portal-news-common.iml" filepath="$PROJECT_DIR$/portal-news-common/portal-news-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/portal-news-model/portal-news-model.iml" filepath="$PROJECT_DIR$/portal-news-model/portal-news-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/portal-news-service-admin/portal-news-service-admin.iml" filepath="$PROJECT_DIR$/portal-news-service-admin/portal-news-service-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portal-news-service-article/portal-news-service-article.iml" filepath="$PROJECT_DIR$/portal-news-service-article/portal-news-service-article.iml" />
       <module fileurl="file://$PROJECT_DIR$/portal-news-service-files/portal-news-service-files.iml" filepath="$PROJECT_DIR$/portal-news-service-files/portal-news-service-files.iml" />
       <module fileurl="file://$PROJECT_DIR$/portal-news-service-user/portal-news-service-user.iml" filepath="$PROJECT_DIR$/portal-news-service-user/portal-news-service-user.iml" />
     </modules>

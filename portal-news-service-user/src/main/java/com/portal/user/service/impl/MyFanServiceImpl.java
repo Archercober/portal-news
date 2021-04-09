@@ -93,6 +93,7 @@ public class MyFanServiceImpl extends BaseService implements MyFanService {
 
         PageHelper.startPage(page, pageSize);
         List<Fans> list = fansMapper.select(fans);
+
         return setterPagedGrid(list, page);
     }
 
@@ -103,6 +104,7 @@ public class MyFanServiceImpl extends BaseService implements MyFanService {
         fans.setSex(sex.type);
 
         Integer count = fansMapper.selectCount(fans);
+        redis.set(REDIS_WRITER_FANS_COUNTS + ":" + writerId, String.valueOf(count));
         return count;
     }
 

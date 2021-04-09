@@ -93,7 +93,7 @@ public class FileUploaderController implements FileUploaderControllerApi {
             return GraceJSONResult.errorCustom(ResponseStatusEnum.FILE_UPLOAD_FAILD);
         }
 
-//        return GraceJSONResult.ok(doAliImageReview(finalPath));
+        //return GraceJSONResult.ok(doAliImageReview(finalPath));
         return GraceJSONResult.ok(finalPath);
     }
 

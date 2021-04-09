@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.portal.user.mapper.AppUserMapperCustom">
 
-  <select id="getUserList" parameterType="Map" resultType="com.imooc.pojo.vo.PublisherVO">
+  <select id="getUserList" parameterType="Map" resultType="com.portal.pojo.vo.PublisherVO">
 
     select
         au.id as userId,
