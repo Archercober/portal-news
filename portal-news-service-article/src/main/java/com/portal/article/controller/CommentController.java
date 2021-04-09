@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,7 +23,7 @@ public class CommentController extends BaseController implements CommentControll
     private CommentPortalService commentPortalService;
 
     @Override
-    public GraceJSONResult createArticle(@Valid CommentReplyBO commentReplyBO) {
+    public GraceJSONResult createArticle( CommentReplyBO commentReplyBO) {
 //                                         BindingResult result) {
 
 //        // 0. 判断BindingResult是否保存错误的验证信息，如果有，则直接return

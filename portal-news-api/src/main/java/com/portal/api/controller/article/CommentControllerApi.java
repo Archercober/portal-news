@@ -7,15 +7,13 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-
 @Api(value = "评论相关业务的controller", tags = {"评论相关业务的controller"})
 @RequestMapping("comment")
 public interface CommentControllerApi {
 
     @PostMapping("createComment")
     @ApiOperation(value = "用户评论", notes = "用户评论", httpMethod = "POST")
-    public GraceJSONResult createArticle(@RequestBody @Valid CommentReplyBO commentReplyBO);
+    public GraceJSONResult createArticle(@RequestBody  CommentReplyBO commentReplyBO);
 //                                         BindingResult result);
 
     @GetMapping("counts")

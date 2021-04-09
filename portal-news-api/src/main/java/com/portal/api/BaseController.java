@@ -137,7 +137,7 @@ public class BaseController {
 
     public List<AppUserVO> getBasicUserList(Set idSet) {
         String userServerUrlExecute
-                = "http://user.imoocnews.com:8003/user/queryByIds?userIds=" + JsonUtils.objectToJson(idSet);
+                = "http://127.0.0.1:8003/user/queryByIds?userIds=" + JsonUtils.objectToJson(idSet);
         ResponseEntity<GraceJSONResult> responseEntity
                 = restTemplate.getForEntity(userServerUrlExecute, GraceJSONResult.class);
         GraceJSONResult bodyResult = responseEntity.getBody();

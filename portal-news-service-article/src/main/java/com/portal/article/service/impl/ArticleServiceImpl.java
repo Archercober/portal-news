@@ -263,13 +263,16 @@ public class ArticleServiceImpl extends BaseService implements ArticleService {
 
         Article pending = new Article();
         pending.setIsDelete(YesOrNo.YES.type);
+        // pending.setTitle("今天天气怎哈哈");
+        //pending.setId(articleId);
 
         int result = articleMapper.updateByExampleSelective(pending, articleExample);
+        //int result = articleMapper.updateByPrimaryKeySelective(pending);
         if (result != 1) {
             GraceException.display(ResponseStatusEnum.ARTICLE_DELETE_ERROR);
         }
 
-        deleteHTML(articleId);
+        //deleteHTML(articleId);
     }
 
     @Autowired
@@ -321,7 +324,7 @@ public class ArticleServiceImpl extends BaseService implements ArticleService {
             GraceException.display(ResponseStatusEnum.ARTICLE_WITHDRAW_ERROR);
         }
 
-        deleteHTML(articleId);
+        //deleteHTML(articleId);
     }
 
     private Example makeExampleCriteria(String userId, String articleId) {

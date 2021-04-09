@@ -73,7 +73,7 @@ public class ArticlePortalController extends BaseController implements ArticlePo
 //            System.out.println(a.getPublishUserId());
             // 1.1 构建发布者的set
             idSet.add(a.getPublishUserId());
-            // 1.2 构建文章id的list
+            // 1.2 构建文章阅读量的key
             idList.add(REDIS_ARTICLE_READ_COUNTS + ":" + a.getId());
         }
         System.out.println(idSet.toString());
