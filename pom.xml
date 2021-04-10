@@ -61,6 +61,8 @@
         <joda-time.version>2.10.6</joda-time.version>
         <spring.cloud-version>2020.0.2</spring.cloud-version>
         <hibernate-validator-version>5.3.6.Final</hibernate-validator-version>
+
+        <springboot-freemarker.version>2.4.3</springboot-freemarker.version>
     </properties>
 
     <!--
@@ -194,6 +196,12 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate-validator-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-freemarker</artifactId>
+                <version>${springboot-freemarker.version}</version>
             </dependency>
 
         </dependencies>

@@ -41,11 +41,12 @@ spring:
     mongodb:
       uri: mongodb://127.0.0.1:27017
       database: portal-news
-#  freemarker:
-#    charset: UTF-8
-#    content-type: text/html
-#    suffix: .ftl
-#    template-loader-path: classpath:/templates/
+
+  freemarker:
+    charset: UTF-8
+    content-type: text/html
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
 #  rabbitmq:
 #    host: 127.0.0.1
 #    port: 5672
@@ -101,8 +102,8 @@ pagehelper:
 # 定义freemarker生成的html位置
 freemarker:
   html:
-    target: /workspace/freemarker_html
-    article: /Users/leechenxiang/Desktop/apache-tomcat-9.0.22/webapps/portal-news/portal/a
+    target: D:/templates/freemarker_html
+    article: C:\Users\Kai Isobe\Desktop\javaweb\apache-tomcat-10.0.2\webapps\imooc-news\portal\a
 
 
 

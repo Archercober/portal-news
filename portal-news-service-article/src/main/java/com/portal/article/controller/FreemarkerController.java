@@ -32,7 +32,7 @@ public class FreemarkerController {
         Configuration cfg = new Configuration(Configuration.getVersion());
         // 声明freemarker模板所需要加载的目录的位置
         String classpath = this.getClass().getResource("/").getPath();
-        cfg.setDirectoryForTemplateLoading(new File(classpath + "templates"));
+        cfg.setDirectoryForTemplateLoading(new File("D:/" + "templates"));
 
 //        System.out.println(htmlTarget);
 //        System.out.println(classpath + "templates");
@@ -41,7 +41,7 @@ public class FreemarkerController {
         Template template = cfg.getTemplate("stu.ftl", "utf-8");
 
         // 2. 获得动态数据
-        String stranger = "慕课网 portal.com";
+        String stranger = "你好网 portal.com";
         model.addAttribute("there", stranger);
         model = makeModel(model);
 

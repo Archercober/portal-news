@@ -13,6 +13,15 @@ public class CommentsVO {
     private Date createTime;
     private String quoteUserNickname;
     private String quoteContent;
+    private String commentUserFace;
+
+    public String getCommentUserFace() {
+        return commentUserFace;
+    }
+
+    public void setCommentUserFace(String commentUserFace) {
+        this.commentUserFace = commentUserFace;
+    }
 
     public String getCommentId() {
         return commentId;

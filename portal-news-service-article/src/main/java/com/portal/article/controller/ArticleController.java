@@ -163,16 +163,19 @@ public class ArticleController extends BaseController implements ArticleControll
         if (pendingStatus == ArticleReviewStatus.SUCCESS.type) {
             // 审核成功，生成文章详情页静态html
             try {
-//                createArticleHTML(articleId);
-                String articleMongoId = createArticleHTMLToGridFS(articleId);
-                // 存储到对应的文章，进行关联保存
-                articleService.updateArticleToGridFS(articleId, articleMongoId);
+                createArticleHTML(articleId);
 
-                // 调用消费端，执行下载html
-//                doDownloadArticleHTML(articleId, articleMongoId);
 
-                // 发送消息到mq队列，让消费者监听并且执行下载html
-                doDownloadArticleHTMLByMQ(articleId, articleMongoId);
+
+//                String articleMongoId = createArticleHTMLToGridFS(articleId);
+//                // 存储到对应的文章，进行关联保存
+//                articleService.updateArticleToGridFS(articleId, articleMongoId);
+//
+//                // 调用消费端，执行下载html
+////                doDownloadArticleHTML(articleId, articleMongoId);
+//
+//                // 发送消息到mq队列，让消费者监听并且执行下载html
+//                doDownloadArticleHTMLByMQ(articleId, articleMongoId);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -184,7 +187,7 @@ public class ArticleController extends BaseController implements ArticleControll
     private void doDownloadArticleHTML(String articleId, String articleMongoId) {
 
         String url =
-                "http://html.portalnews.com:8002/article/html/download?articleId="
+                "http://127.0.0.1:8002/article/html/download?articleId="
                         + articleId +
                         "&articleMongoId="
                         + articleMongoId;
@@ -214,7 +217,7 @@ public class ArticleController extends BaseController implements ArticleControll
 
         Configuration cfg = new Configuration(Configuration.getVersion());
         String classpath = this.getClass().getResource("/").getPath();
-        cfg.setDirectoryForTemplateLoading(new File(classpath + "templates"));
+        cfg.setDirectoryForTemplateLoading(new File("D:/" + "templates"));
 
         Template template = cfg.getTemplate("detail.ftl", "utf-8");
 
