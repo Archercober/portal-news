@@ -15,13 +15,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -56,15 +54,15 @@ public class PassportController extends BaseController implements PassportContro
 
     @Override
     public GraceJSONResult doLogin(@Valid RegistLoginBO registLoginBO,
-                                   BindingResult result,
+
                                    HttpServletRequest request,
                                    HttpServletResponse response) {
 
-        // 0.判断BindingResult中是否保存了错误的验证信息，如果有，则需要返回
-        if (result.hasErrors()) {
-            Map<String, String> map = getErrors(result);
-            return GraceJSONResult.errorMap(map);
-        }
+//        // 0.判断BindingResult中是否保存了错误的验证信息，如果有，则需要返回
+//        if (result.hasErrors()) {
+//            Map<String, String> map = getErrors(result);
+//            return GraceJSONResult.errorMap(map);
+//        }
 
         String mobile = registLoginBO.getMobile();
         String smsCode = registLoginBO.getSmsCode();

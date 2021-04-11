@@ -14,7 +14,9 @@
         <module>portal-news-service-user</module>
         <module>portal-news-service-files</module>
         <module>portal-news-service-admin</module>
-<!--        <module>portal-news-service-article</module>-->
+        <module>portal-news-service-article</module>
+        <module>springcloud-eureka</module>
+
     </modules>
 
     <!--

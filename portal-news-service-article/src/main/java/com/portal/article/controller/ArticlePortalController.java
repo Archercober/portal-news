@@ -2,6 +2,7 @@ package com.portal.article.controller;
 
 import com.portal.api.BaseController;
 import com.portal.api.controller.article.ArticlePortalControllerApi;
+import com.portal.api.controller.user.UserControllerApi;
 import com.portal.article.service.ArticlePortalService;
 import com.portal.grace.result.GraceJSONResult;
 import com.portal.pojo.Article;
@@ -17,7 +18,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -53,9 +53,9 @@ public class ArticlePortalController extends BaseController implements ArticlePo
 
         PagedGridResult gridResult
                 = articlePortalService.queryIndexArticleList(keyword,
-                                                            category,
-                                                            page,
-                                                            pageSize);
+                category,
+                page,
+                pageSize);
         //拼接文章信息和对应的用户信息
         gridResult = rebuildArticleGrid(gridResult);
         return GraceJSONResult.ok(gridResult);
@@ -64,7 +64,7 @@ public class ArticlePortalController extends BaseController implements ArticlePo
     private PagedGridResult rebuildArticleGrid(PagedGridResult gridResult) {
         // START
 
-        List<Article> list = (List<Article>)gridResult.getRows();
+        List<Article> list = (List<Article>) gridResult.getRows();
 
         // 1. 构建发布者id列表
         Set<String> idSet = new HashSet<>();
@@ -87,13 +87,13 @@ public class ArticlePortalController extends BaseController implements ArticlePo
         // 3. 拼接两个list，重组文章列表
         List<IndexArticleVO> indexArticleList = new ArrayList<>();
 
-        for (int i = 0 ; i < list.size() ; i ++) {
+        for (int i = 0; i < list.size(); i++) {
             IndexArticleVO indexArticleVO = new IndexArticleVO();
             Article a = list.get(i);
             BeanUtils.copyProperties(a, indexArticleVO);
 
             // 3.1 从publisherList中获得发布者的基本信息
-            AppUserVO publisher  = getUserIfPublisher(a.getPublishUserId(), publisherList);
+            AppUserVO publisher = getUserIfPublisher(a.getPublishUserId(), publisherList);
             indexArticleVO.setPublisherVO(publisher);
 
             // 3.2 重新组装设置文章列表中的阅读量
@@ -127,33 +127,35 @@ public class ArticlePortalController extends BaseController implements ArticlePo
     @Autowired
     private DiscoveryClient discoveryClient;
 
-//    @Autowired
-//    private UserControllerApi userControllerApi;
+    @Autowired
+    private UserControllerApi userControllerApi;
 
     // 发起远程调用，获得用户的基本信息
     private List<AppUserVO> getPublisherList(Set idSet) {
 
-//        String serviceId = "SERVICE-USER";
+//          String serviceId = "SERVICE-USER";
 //        List<ServiceInstance> instanceList = discoveryClient.getInstances(serviceId);
 //        ServiceInstance userService = instanceList.get(0);
-
-//        String userServerUrlExecute
+//
+//          String userServerUrlExecute
 //                = "http://" + serviceId + "/user/queryByIds?userIds=" + JsonUtils.objectToJson(idSet);
 
-//        GraceJSONResult bodyResult = userControllerApi.queryByIds(JsonUtils.objectToJson(idSet));
 
 //        String userServerUrlExecute
 //                = "http://" + userService.getHost() +
 //                ":"
 //                + userService.getPort()
 //                + "/user/queryByIds?userIds=" + JsonUtils.objectToJson(idSet);
+//
+//        String userServerUrlExecute
+//                = "http://127.0.0.1:8003/user/queryByIds?userIds=" + JsonUtils.objectToJson(idSet);
 
-        String userServerUrlExecute
-                = "http://127.0.0.1:8003/user/queryByIds?userIds=" + JsonUtils.objectToJson(idSet);
+//        ResponseEntity<GraceJSONResult> responseEntity
+//                = restTemplate.getForEntity(userServerUrlExecute, GraceJSONResult.class);
+//        GraceJSONResult bodyResult = responseEntity.getBody();
 
-        ResponseEntity<GraceJSONResult> responseEntity
-                = restTemplate.getForEntity(userServerUrlExecute, GraceJSONResult.class);
-        GraceJSONResult bodyResult = responseEntity.getBody();
+        //直接拿到 feign注入的controller api
+        GraceJSONResult bodyResult = userControllerApi.queryByIds(JsonUtils.objectToJson(idSet));
         List<AppUserVO> publisherList = null;
         if (bodyResult.getStatus() == 200) {
             String userJson = JsonUtils.objectToJson(bodyResult.getData());
@@ -165,11 +167,30 @@ public class ArticlePortalController extends BaseController implements ArticlePo
     }
 
 
+    // 通过注册中心调用服务
+//    private List<AppUserVO> getPublisherListEureka(Set idSet){
+//        String serviceId = "SERVICE-USER";
+//        List<ServiceInstance> instanceList = discoveryClient.getInstances(serviceId);
+//        ServiceInstance userService = instanceList.get(0);
+//
+//        String userServerUrlExecute
+//                = "http://" + serviceId + "/user/queryByIds?userIds=" + JsonUtils.objectToJson(idSet);
+//
+//        GraceJSONResult bodyResult = userControllerApi.queryByIds(JsonUtils.objectToJson(idSet));
+//
+//        String userServerUrlExecute
+//                = "http://" + userService.getHost() +
+//                ":"
+//                + userService.getPort()
+//                + "/user/queryByIds?userIds=" + JsonUtils.objectToJson(idSet);
+//
+//    }
+
+
     @Override
     public GraceJSONResult hotList() {
         return GraceJSONResult.ok(articlePortalService.queryHotList());
     }
-
 
 
     @Override
@@ -195,7 +216,6 @@ public class ArticlePortalController extends BaseController implements ArticlePo
         PagedGridResult gridResult = articlePortalService.queryGoodArticleListOfWriter(writerId);
         return GraceJSONResult.ok(gridResult);
     }
-
 
 
     @Override
@@ -226,7 +246,7 @@ public class ArticlePortalController extends BaseController implements ArticlePo
 
         String userIp = IPUtil.getRequestIp(request);
         // 设置针对当前用户ip的永久存在的key，存入到redis，表示该ip的用户已经阅读过了，无法累加阅读量
-        redis.setnx(REDIS_ALREADY_READ + ":" +  articleId + ":" + userIp, userIp);
+        redis.setnx(REDIS_ALREADY_READ + ":" + articleId + ":" + userIp, userIp);
 
         redis.increment(REDIS_ARTICLE_READ_COUNTS + ":" + articleId, 1);
         return GraceJSONResult.ok();

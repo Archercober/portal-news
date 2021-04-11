@@ -3,13 +3,12 @@ package com.portal.article.task;
 import com.portal.article.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.time.LocalDateTime;
 
 @Configuration      // 1. 标记配置类，使得springboot容器扫描到
-@EnableScheduling   // 2. 开启定时任务
+//@EnableScheduling   // 2. 开启定时任务
 public class TaskPublishArticles {
 
     @Autowired

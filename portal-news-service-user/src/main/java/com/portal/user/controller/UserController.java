@@ -1,5 +1,7 @@
 package com.portal.user.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.portal.api.BaseController;
 import com.portal.api.controller.user.UserControllerApi;
 import com.portal.grace.result.GraceJSONResult;
@@ -15,21 +17,27 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @RestController
+@DefaultProperties(defaultFallback = "defaultFallback")
 public class UserController extends BaseController implements UserControllerApi {
 
     final static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
+
+
+    public GraceJSONResult defaultFallback() {
+        System.out.println("全局降级");
+        return GraceJSONResult.errorCustom(ResponseStatusEnum.SYSTEM_ERROR_GLOBAL);
+    }
 
     @Override
     public GraceJSONResult getUserInfo(String userId) {
@@ -87,23 +95,22 @@ public class UserController extends BaseController implements UserControllerApi 
 
     @Override
     public GraceJSONResult updateUserInfo(
-            @Valid UpdateUserInfoBO updateUserInfoBO,
-            BindingResult result) {
+            @Valid UpdateUserInfoBO updateUserInfoBO){
 
-        // 0. 校验BO
-        if (result.hasErrors()) {
-            Map<String, String> map = getErrors(result);
-            return GraceJSONResult.errorMap(map);
-        }
 
         // 1. 执行更新操作
         userService.updateUserInfo(updateUserInfoBO);
         return GraceJSONResult.ok();
     }
+    @Value("${server.port}")
 
+    private String port;
+
+    @HystrixCommand
     @Override
     public GraceJSONResult queryByIds(String userIds) {
-
+        System.out.println("myPort"+port);
+        //int a=1/0;
         if (StringUtils.isBlank(userIds)) {
             return GraceJSONResult.errorCustom(ResponseStatusEnum.USER_NOT_EXIST_ERROR);
         }
